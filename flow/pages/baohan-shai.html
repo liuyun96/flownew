@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<style>
+			body,
+			.mui-content {
+				color: #000000;
+			}
+			
+			.flow-shai-ul li {
+				width: 32%;
+				list-style: none;
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 1.42;
+				position: relative;
+				display: inline-block;
+				margin-bottom: 10px;
+				padding: 6px 12px;
+				cursor: pointer;
+				-webkit-transition: all;
+				transition: all;
+				-webkit-transition-timing-function: linear;
+				transition-timing-function: linear;
+				-webkit-transition-duration: .2s;
+				transition-duration: .2s;
+				text-align: center;
+				vertical-align: top;
+				white-space: nowrap;
+				color: #333;
+				border: 1px solid #ccc;
+				border-radius: 3px;
+				border-top-left-radius: 3px;
+				border-top-right-radius: 3px;
+				border-bottom-right-radius: 3px;
+				border-bottom-left-radius: 3px;
+				background-color: #fff;
+				background-clip: padding-box;
+			}
+			
+			.flow-shai-ul {
+				padding-left: 15px;
+				padding-right: 15px;
+				padding-top: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="title">区域</div>
+			<ul class="flow-shai-ul" style="background: red;">
+				<li>全部</li>
+				<li>华南区</li>
+				<li>华中区</li>
+				<li>华北区</li>
+				<li>西南区</li>
+				<li>东北区</li>
+				<li>西北区</li>
+				<li>江西省</li>
+			</ul>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			//关闭back、menu按键监听，这样侧滑主界面会自动获得back和memu的按键事件，仅在主界面处理按键逻辑即可；
+			mui.init({
+				keyEventBind: {
+					backbutton: false,
+					menubutton: false
+				}
+			});
+			var main = null;
+			mui.plusReady(function() {
+				main = plus.webview.currentWebview().opener();
+			})
+
+			function closeMenu() {
+				mui.fire(main, "menu:swiperight");
+			}
+			//左滑显示出来的菜单，只需监听右滑，然后将菜单关闭即可；在该菜单上左滑，不做任何操作；
+			window.addEventListener("swiperight", closeMenu);
+			document.getElementById("close-btn").addEventListener('tap', closeMenu);
+		</script>
+	</body>
+
+</html>

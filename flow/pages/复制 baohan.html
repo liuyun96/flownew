@@ -122,66 +122,6 @@
 						</div>
 					</div>
 				</li>
-
-				<li class="mui-table-view-cell flow-li">
-					<div class="mui-table">
-						<div class="mui-table-cell num">
-							03
-						</div>
-						<div class="mui-table-cell mui-col-xs-2">
-							南昌市
-						</div>
-						<div class="mui-table-cell mui-col-xs-5">
-							绿地玫瑰城项目
-						</div>
-						<div class="mui-table-cell mui-col-xs-4">
-							30,000.00
-						</div>
-						<div class="mui-table-cell mui-col-xs-4">
-							2015-10-21
-						</div>
-					</div>
-				</li>
-
-				<li class="mui-table-view-cell flow-li">
-					<div class="mui-table">
-						<div class="mui-table-cell num">
-							04
-						</div>
-						<div class="mui-table-cell mui-col-xs-2">
-							南昌市
-						</div>
-						<div class="mui-table-cell mui-col-xs-5">
-							绿地玫瑰城项目
-						</div>
-						<div class="mui-table-cell mui-col-xs-4">
-							30,000.00
-						</div>
-						<div class="mui-table-cell mui-col-xs-4">
-							2015-10-21
-						</div>
-					</div>
-				</li>
-
-				<li class="mui-table-view-cell flow-li">
-					<div class="mui-table">
-						<div class="mui-table-cell num">
-							05
-						</div>
-						<div class="mui-table-cell mui-col-xs-2">
-							南昌市
-						</div>
-						<div class="mui-table-cell mui-col-xs-5">
-							绿地玫瑰城项目
-						</div>
-						<div class="mui-table-cell mui-col-xs-4">
-							30,000.00
-						</div>
-						<div class="mui-table-cell mui-col-xs-4">
-							2015-10-21
-						</div>
-					</div>
-				</li>
 			</ul>
 			<ul class="mui-pagination flow-pagination">
 				<li class="mui-previous mui-disabled">
@@ -372,17 +312,7 @@
 				showMenu = false;
 			}
 		}
-	 	//重写mui.menu方法，Android版本menu按键按下可自动打开、关闭侧滑菜单；
-		mui.menu = function() {
-			if (showMenu) {
-				closeMenu();
-			} else {
-				openMenu();
-			}
-		}
-		
 		document.getElementById("shai_xuan").addEventListener('tap', openMenu);
-		
 		(function($) {
 			$('.mui-pagination').on('tap', 'a', function() {
 				var li = this.parentNode;
@@ -424,7 +354,6 @@
 					}
 				}
 			});
-			
 		})(mui);
 	</script>
 

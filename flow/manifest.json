@@ -208,11 +208,92 @@
 					"pages/notice.html",
 					"fonts/mui.ttf",
 					"css/mui.min.css",
-					"js/update.js"
+					"js/update.js",
+					"pages/baohan.html",
+					"pages/offcanvas-drag-left-plus-main.html",
+					"pages/tab-webview-subpage-main.html",
+					"pages/list.html",
+					"list.html"
 				],
 				"refer": [
 					"index-menu.html"
 				],
+				"priority": 0
+			},
+			"pages/baohan.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/flow.css",
+					"css/mymui.css",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"pages/baohan-shai.html",
+					"pages/offcanvas-drag-left-plus-menu.html"
+				],
+				"priority": 0
+			},
+			"pages/offcanvas-drag-left-plus-main.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"pages/offcanvas-drag-left-plus-menu.html"
+				],
+				"priority": 0
+			},
+			"pages/offcanvas-drag-left-plus-menu.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/tab-webview-subpage-main.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"pages/template.html",
+					"pages/baohan.html"
+				],
+				"priority": 0
+			},
+			"pages/list.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"list.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"pages/baohan.html",
+					"css/app.css"
+				],
+				"refer": [
+					"pages/template.html"
+				],
+				"priority": 0
+			},
+			"pages/baohan-shai.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
 				"priority": 0
 			}
 		},
@@ -258,9 +339,7 @@
 				"css/mui.indexedlist.css",
 				"js/mui.picker.all.js",
 				"js/city.data-3.js",
-				"css/app.css",
 				"css/mui.dtpicker.css",
-				"css/flow.css",
 				"css/mui.picker.all.css",
 				"js/mui.locker.js",
 				"js/feedback.js",
