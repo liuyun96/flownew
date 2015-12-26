@@ -8,65 +8,98 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/flow.css">
+		<link rel="stylesheet" href="../css/mymui.css">
 		<style>
 			body,
 			.mui-content {
 				color: #000000;
 			}
 			
-			.flow-shai-ul li {
-				width: 32%;
-				list-style: none;
-				font-size: 14px;
-				font-weight: 400;
-				line-height: 1.42;
-				position: relative;
-				display: inline-block;
-				margin-bottom: 10px;
-				padding: 6px 12px;
-				cursor: pointer;
-				-webkit-transition: all;
-				transition: all;
-				-webkit-transition-timing-function: linear;
-				transition-timing-function: linear;
-				-webkit-transition-duration: .2s;
-				transition-duration: .2s;
+			.flow-shai-area div {
+				float: left;
+				width: 33.3%;
 				text-align: center;
-				vertical-align: top;
-				white-space: nowrap;
-				color: #333;
-				border: 1px solid #ccc;
-				border-radius: 3px;
-				border-top-left-radius: 3px;
-				border-top-right-radius: 3px;
-				border-bottom-right-radius: 3px;
-				border-bottom-left-radius: 3px;
-				background-color: #fff;
-				background-clip: padding-box;
+				padding-bottom: 10px;
 			}
 			
-			.flow-shai-ul {
-				padding-left: 15px;
-				padding-right: 15px;
-				padding-top: 10px;
+			.flow-shai-area .mui-btn {
+				width: 90%;
+			}
+			
+			.flow-shai-area .selected {
+				border: 1px solid RGB(205, 228, 239);
+				background: #ccc;
+				color: white;
+			}
+			
+			.flow-shai-area {
+				width: 90%;
+				margin: 0 auto;
+				margin-top: 10px;
+				margin-bottom: 10px;
+				clear: left;
+			}
+			
+			.flow-shai .title {
+				height: 40px;
+				line-height: 40px;
+				padding-left: 6.5%;
+				background: #ccc;
+				clear: both;
+			}
+			
+			.flow-sure-btn {
+				color: white;
+				width: 90%;
+				background: RGB(143, 195, 32) !important;
 			}
 		</style>
 	</head>
 
 	<body>
 		<div class="mui-content">
-			<div class="title">区域</div>
-			<ul class="flow-shai-ul" style="background: red;">
-				<li>全部</li>
-				<li>华南区</li>
-				<li>华中区</li>
-				<li>华北区</li>
-				<li>西南区</li>
-				<li>东北区</li>
-				<li>西北区</li>
-				<li>江西省</li>
-			</ul>
+			<section class="flow-shai">
+				<div class="title">区域</div>
+				<div class="flow-shai-area">
+					<div>
+						<button type="button" class="mui-btn selected">
+							全部
+						</button>
+					</div>
+					<div><button type="button" class="mui-btn">华南区</button></div>
+					<div><button type="button" class="mui-btn">华中区</button></div>
+					<div><button type="button" class="mui-btn">华北区</button></div>
+					<div><button type="button" class="mui-btn">西南区</button></div>
+					<div><button type="button" class="mui-btn">东北区</button></div>
+					<div><button type="button" class="mui-btn">西北区</button></div>
+					<div><button type="button" class="mui-btn">江西省</button></div>
+				</div>
+			</section>
+			<section class="flow-shai">
+				<div class="title">时间</div>
+				<div class="flow-shai-area">
+					<div><button type="button" class="mui-btn selected">近3月</button></div>
+					<div><button type="button" class="mui-btn">近半年</button></div>
+					<div><button type="button" class="mui-btn">近1年</button></div>
+					<div><button type="button" class="mui-btn">近2年</button></div>
+					<div><button type="button" class="mui-btn">全部</button></div>
+				</div>
+			</section>
+			<section class="flow-shai">
+				<div class="title">状态</div>
+				<div class="flow-shai-area">
+					<div><button type="button" class="mui-btn selected">在用</button></div>
+					<div><button type="button" class="mui-btn">已用</button></div>
+					<div><button type="button" class="mui-btn">全部</button></div>
+				</div>
+			</section>
 		</div>
+		<nav class="flow-bottom-back">
+			<button id="flow_sure_btn" type="button" class="mui-btn flow-sure-btn">
+				确认
+			</button>
+		</nav>
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript" charset="utf-8">
 			//关闭back、menu按键监听，这样侧滑主界面会自动获得back和memu的按键事件，仅在主界面处理按键逻辑即可；
@@ -86,7 +119,7 @@
 			}
 			//左滑显示出来的菜单，只需监听右滑，然后将菜单关闭即可；在该菜单上左滑，不做任何操作；
 			window.addEventListener("swiperight", closeMenu);
-			document.getElementById("close-btn").addEventListener('tap', closeMenu);
+			document.getElementById("flow_sure_btn").addEventListener('tap', closeMenu);
 		</script>
 	</body>
 

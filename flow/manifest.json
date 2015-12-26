@@ -291,7 +291,9 @@
 				"resources": [
 					"js/mui.min.js",
 					"fonts/mui.ttf",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"css/flow.css",
+					"css/mymui.css"
 				],
 				"refer": [],
 				"priority": 0
