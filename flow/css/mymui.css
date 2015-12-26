@@ -1,0 +1,10 @@
+.mui-bar{
+	background: RGB(53,64,82);
+}
+.mui-bar .mui-title{
+	color: white;
+}
+
+.mui-bar-nav a{
+	color: white;
+}

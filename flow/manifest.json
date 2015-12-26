@@ -1,4 +1,4 @@
-﻿{
+{
     "@platforms": ["android", "iPhone", "iPad"],
     "id": "H5EE58A0B",/*应用的标识，创建应用时自动生成，勿手动修改*/
     "name": "flow",/*应用名称，程序桌面图标名称*/
@@ -199,5 +199,75 @@
                 }
             }
         }
-    }
+    },
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"js/mui.min.js",
+					"pages/notice.html",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/update.js"
+				],
+				"refer": [
+					"index-menu.html"
+				],
+				"priority": 0
+			}
+		},
+		"index": {
+			"resources": [
+				"js/mui.min.js",
+				"pages/notice.html",
+				"fonts/mui.ttf",
+				"css/mui.min.css",
+				"js/update.js"
+			],
+			"refer": [
+				"index-menu.html"
+			],
+			"priority": 0
+		},
+		"idle": {
+			"resources": [
+				"js/mui.imageViewer.js",
+				"js/mui.picker.min.js",
+				"js/mui.dtpicker.js",
+				"js/ad.js",
+				"js/mui.lazyload.img.js",
+				"js/mui.zoom.js",
+				"js/mui.listpicker.js",
+				"js/mui.poppicker.js",
+				"js/mui.previewimage.js",
+				"css/mui.poppicker.css",
+				"css/mui.picker.min.css",
+				"css/mui.imageviewer.css",
+				"js/city.data.js",
+				"js/mui.js",
+				"js/feedback-page.js",
+				"js/mui.indexedlist.js",
+				"js/mui.view.js",
+				"js/mui.pullToRefresh.js",
+				"js/mui.picker.js",
+				"js/mui.pullToRefresh.material.js",
+				"css/mui.listpicker.css",
+				"js/mui.lazyload.js",
+				"css/mui.picker.css",
+				"css/mui.css",
+				"css/mui.indexedlist.css",
+				"js/mui.picker.all.js",
+				"js/city.data-3.js",
+				"css/app.css",
+				"css/mui.dtpicker.css",
+				"css/flow.css",
+				"css/mui.picker.all.css",
+				"js/mui.locker.js",
+				"js/feedback.js",
+				"js/test.js",
+				"css/feedback-page.css",
+				"js/arttmpl.js"
+			]
+		}
+	}
 }

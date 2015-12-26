@@ -1,0 +1,38 @@
+.flow-ul .num{
+	color: RGB(249,164,135);
+	padding-right: 3px;
+	width: 20px;
+	text-align: left;
+}
+
+.flow-ul .head{
+	background: RGB(240,250,252);
+}
+
+.flow-content .mui-table-view{
+	position: static;	
+}
+
+.flow-li{
+	font-size: 12px;
+}
+
+.flow-bottom-back{
+	position: fixed;
+	bottom: 0px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	width: 100%;
+	background: RGB(133,143,150);
+}
+.flow-bottom-back a{
+	color: black;
+	font-size: 20px;
+}
+
+.flow-pagination{
+	position: absolute;
+	bottom: 65px;
+	right: 15px;
+}

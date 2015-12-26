@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/flow.css">
+		<link rel="stylesheet" href="../css/mymui.css">
+		<style>
+			.mui-table h4,
+			.mui-table h5,
+			.mui-table .mui-h5,
+			.mui-table .mui-h6,
+			.mui-table p {
+				margin-top: 0;
+			}
+			
+			.mui-table h4 {
+				line-height: 21px;
+				font-weight: 500;
+			}
+			
+			.mui-table .oa-icon {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+			}
+			
+			.mui-table .oa-icon-star-filled {
+				color: #f14e41;
+			}
+			
+			body {
+				color: RGB(157, 164, 169);
+				font-size: 15px;
+				background: white;
+			}
+			/******
+		     * self
+		     */
+			
+			.flow-search {
+				height: 50px;
+				line-height: 50px;
+				padding-left: 15px;
+				padding-right: 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-icon mui-icon-bars mui-pull-left"></a>
+			<a id="info" class="mui-icon mui-icon-search mui-pull-right" style="color: #999;"></a>
+			<h1 id="title" class="mui-title">保函清单</h1>
+		</header>
+		<div class="mui-content flow-content">
+			<section class="flow-search mui-table">
+				<div class="mui-table-cell mui-col-xs-9">检索结果</div>
+				<div id="shai_xuan" class="mui-table-cell mui-col-xs-3 mui-text-right">筛选</div>
+			</section>
+			<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed flow-ul">
+				<li class="mui-table-view-cell head">
+					<div class="mui-table">
+						<div class="mui-table-cell num">
+						</div>
+						<div class="mui-table-cell mui-col-xs-2">
+							区域
+						</div>
+						<div class="mui-table-cell mui-col-xs-5">
+							项目名称
+						</div>
+						<div class="mui-table-cell mui-col-xs-4">
+							开具金额
+						</div>
+						<div class="mui-table-cell mui-col-xs-4">
+							截止时间
+						</div>
+					</div>
+				</li>
+			</ul>
+			<ul id="flow-body" class="mui-table-view mui-table-view-striped mui-table-view-condensed flow-ul">
+				<li class="mui-table-view-cell flow-li">
+					<div class="mui-table">
+						<div class="mui-table-cell num">
+							01
+						</div>
+						<div class="mui-table-cell mui-col-xs-2">
+							南昌市
+						</div>
+						<div class="mui-table-cell mui-col-xs-5">
+							绿地玫瑰城项目
+						</div>
+						<div class="mui-table-cell mui-col-xs-4">
+							30,000.00
+						</div>
+						<div class="mui-table-cell mui-col-xs-4">
+							2015-10-21
+						</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell flow-li">
+					<div class="mui-table">
+						<div class="mui-table-cell num">
+							02
+						</div>
+						<div class="mui-table-cell mui-col-xs-2">
+							南昌市
+						</div>
+						<div class="mui-table-cell mui-col-xs-5">
+							绿地玫瑰城项目
+						</div>
+						<div class="mui-table-cell mui-col-xs-4">
+							30,000.00
+						</div>
+						<div class="mui-table-cell mui-col-xs-4">
+							2015-10-21
+						</div>
+					</div>
+				</li>
+
+				<li class="mui-table-view-cell flow-li">
+					<div class="mui-table">
+						<div class="mui-table-cell num">
+							03
+						</div>
+						<div class="mui-table-cell mui-col-xs-2">
+							南昌市
+						</div>
+						<div class="mui-table-cell mui-col-xs-5">
+							绿地玫瑰城项目
+						</div>
+						<div class="mui-table-cell mui-col-xs-4">
+							30,000.00
+						</div>
+						<div class="mui-table-cell mui-col-xs-4">
+							2015-10-21
+						</div>
+					</div>
+				</li>
+
+				<li class="mui-table-view-cell flow-li">
+					<div class="mui-table">
+						<div class="mui-table-cell num">
+							04
+						</div>
+						<div class="mui-table-cell mui-col-xs-2">
+							南昌市
+						</div>
+						<div class="mui-table-cell mui-col-xs-5">
+							绿地玫瑰城项目
+						</div>
+						<div class="mui-table-cell mui-col-xs-4">
+							30,000.00
+						</div>
+						<div class="mui-table-cell mui-col-xs-4">
+							2015-10-21
+						</div>
+					</div>
+				</li>
+
+				<li class="mui-table-view-cell flow-li">
+					<div class="mui-table">
+						<div class="mui-table-cell num">
+							05
+						</div>
+						<div class="mui-table-cell mui-col-xs-2">
+							南昌市
+						</div>
+						<div class="mui-table-cell mui-col-xs-5">
+							绿地玫瑰城项目
+						</div>
+						<div class="mui-table-cell mui-col-xs-4">
+							30,000.00
+						</div>
+						<div class="mui-table-cell mui-col-xs-4">
+							2015-10-21
+						</div>
+					</div>
+				</li>
+			</ul>
+			<ul class="mui-pagination flow-pagination">
+				<li class="mui-previous mui-disabled">
+					<a href="#">
+							&laquo;
+						</a>
+				</li>
+				<li class="mui-active">
+					<a href="#">
+							1
+						</a>
+				</li>
+				<li>
+					<a href="#">
+							2
+						</a>
+				</li>
+				<li>
+					<a href="#">
+							3
+						</a>
+				</li>
+				<li>
+					<a href="#">
+							4
+						</a>
+				</li>
+				<li>
+					<a href="#">
+							5
+						</a>
+				</li>
+				<li class="mui-next">
+					<a href="#">
+							&raquo;
+						</a>
+				</li>
+			</ul>
+		</div>
+		<nav class="flow-bottom-back">
+			<a class="mui-action-back">返回</a>
+		</nav>
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+		(function($) {
+			$('.mui-pagination').on('tap', 'a', function() {
+				var li = this.parentNode;
+				var classList = li.classList;
+				if (!classList.contains('mui-active') && !classList.contains('mui-disabled')) {
+					var active = li.parentNode.querySelector('.mui-active');
+					if (classList.contains('mui-previous')) { //previous
+						if (active) {
+							var previous = active.previousElementSibling;
+							console.log('previous', previous);
+							if (previous && !previous.classList.contains('mui-previous')) {
+								$.trigger(previous.querySelector('a'), 'tap');
+							} else {
+								classList.add('mui-disabled');
+							}
+						}
+					} else if (classList.contains('mui-next')) { //next
+						if (active) {
+							var next = active.nextElementSibling;
+							if (next && !next.classList.contains('mui-next')) {
+								$.trigger(next.querySelector('a'), 'tap');
+							} else {
+								classList.add('mui-disabled');
+							}
+						}
+					} else { //page
+						active.classList.remove('mui-active');
+						classList.add('mui-active');
+						var page = parseInt(this.innerText);
+						var previousPageElement = li.parentNode.querySelector('.mui-previous');
+						var nextPageElement = li.parentNode.querySelector('.mui-next');
+						previousPageElement.classList.remove('mui-disabled');
+						nextPageElement.classList.remove('mui-disabled');
+						if (page <= 1) {
+							previousPageElement.classList.add('mui-disabled');
+						} else if (page >= 5) {
+							nextPageElement.classList.add('mui-disabled');
+						}
+					}
+				}
+			});
+		})(mui);
+	</script>
+
+</html>
