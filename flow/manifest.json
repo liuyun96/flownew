@@ -284,7 +284,11 @@
 					"css/app.css"
 				],
 				"refer": [
-					"pages/template.html"
+					"pages/template.html",
+					"pages/baozheng.html",
+					"pages/borrow.html",
+					"pages/project.html",
+					"pages/notice.html"
 				],
 				"priority": 0
 			},
@@ -294,6 +298,51 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"css/flow.css",
+					"css/mymui.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/borrow.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/flow.css",
+					"css/mui.min.css",
+					"css/mymui.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/project.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/flow.css",
+					"css/mui.min.css",
+					"css/mymui.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/baozheng.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/flow.css",
+					"css/mui.min.css",
+					"css/mymui.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/notice.html": {
+				"resources": [
+					"css/mui-slider.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/flow.css",
+					"css/mui.min.css",
 					"css/mymui.css"
 				],
 				"refer": [],

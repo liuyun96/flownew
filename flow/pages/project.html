@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8">
-		<title>Hello MUI</title>
+		<title>工程款管理</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -56,7 +55,7 @@
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-icon mui-icon-bars mui-pull-left"></a>
 			<a id="info" class="mui-icon mui-icon-search mui-pull-right" style="color: #999;"></a>
-			<h1 id="title" class="mui-title">保函清单</h1>
+			<h1 id="title" class="mui-title">工程款管理</h1>
 		</header>
 		<div class="mui-content flow-content">
 			<section class="flow-search mui-table">
@@ -68,30 +67,24 @@
 					<div class="mui-table">
 						<div class="mui-table-cell num">
 						</div>
-						<div class="mui-table-cell mui-col-xs-2">
-							区域
-						</div>
 						<div class="mui-table-cell mui-col-xs-5">
 							项目名称
 						</div>
 						<div class="mui-table-cell mui-col-xs-4">
-							开具金额
+							进账汇总
 						</div>
 						<div class="mui-table-cell mui-col-xs-4">
-							截止时间
+							公司管理费
 						</div>
 					</div>
 				</li>
 			</ul>
 			<ul id="flow-body" class="mui-table-view mui-table-view-striped mui-table-view-condensed flow-ul">
-				<li class="mui-table-view-cell flow-li">
+				<li id="flow_li_1" class="mui-table-view-cell flow-li">
 					<div class="mui-table">
 						<div class="mui-table-cell num">
 							01
 						</div>
-						<div class="mui-table-cell mui-col-xs-2">
-							南昌市
-						</div>
 						<div class="mui-table-cell mui-col-xs-5">
 							绿地玫瑰城项目
 						</div>
@@ -99,29 +92,11 @@
 							30,000.00
 						</div>
 						<div class="mui-table-cell mui-col-xs-4">
-							2015-10-21
+							5000.10
 						</div>
 					</div>
 				</li>
-				<li class="mui-table-view-cell flow-li">
-					<div class="mui-table">
-						<div class="mui-table-cell num">
-							02
-						</div>
-						<div class="mui-table-cell mui-col-xs-2">
-							南昌市
-						</div>
-						<div class="mui-table-cell mui-col-xs-5">
-							绿地玫瑰城项目
-						</div>
-						<div class="mui-table-cell mui-col-xs-4">
-							30,000.00
-						</div>
-						<div class="mui-table-cell mui-col-xs-4">
-							2015-10-21
-						</div>
-					</div>
-				</li>
+				
 			</ul>
 			<ul class="mui-pagination flow-pagination">
 				<li class="mui-previous mui-disabled">
@@ -162,8 +137,63 @@
 			</ul>
 		</div>
 		<nav class="flow-bottom-back">
-			<a class="mui-action-back">返回</a>
+			<button type="button" class="mui-btn mui-action-back">
+				返回
+			</button>
 		</nav>
+
+		<!--右下角弹出菜单-->
+		<section id="bottomPopover" class="mui-popover mui-popover-bottom flow-popover">
+			<div class="flow-popover-body">
+				<header class="mui-bar mui-bar-nav">
+					<a class="mui-icon mui-icon-close mui-pull-right" href="#bottomPopover"></a>
+					<h1 class="mui-title">工程款管理</h1>
+				</header>
+				<div class="mui-content flow-model-content" style="height: 100%;">
+					<div class="mui-table">
+						<div class="mui-table-cell mui-col-xs-3">
+							区域：
+						</div>
+						<div id="baohan_area">南昌市</div>
+					</div>
+					<div class="mui-table">
+						<div class="mui-table-cell mui-col-xs-3">
+							项目名称：
+						</div>
+						<div id="baohan_project_name">绿地玫瑰城项目</div>
+					</div>
+					<div class="mui-table">
+						<div class="mui-table-cell mui-col-xs-3">
+							进账汇总：
+						</div>
+						<div id="baohan_endtime">10000000</div>
+					</div>
+					<div class="mui-table">
+						<div class="mui-table-cell mui-col-xs-3">
+							公司管理费：
+						</div>
+						<div id="baohan_starttime">5550</div>
+					</div>
+					<div class="mui-table">
+						<div class="mui-table-cell mui-col-xs-3">
+							其他代扣款：
+						</div>
+						<div id="baonhan_money">30000.00</div>
+					</div>
+					<div class="mui-table">
+						<div class="mui-table-cell mui-col-xs-3">
+							支出给项目部款项：
+						</div>
+						<div id="baohan_type">1000</div>
+					</div>
+					<div class="mui-table">
+						<div class="mui-table-cell mui-col-xs-3">
+							结余：
+						</div>
+						<div id="baohan_status">100</div>
+					</div>
+				</div>
+		</section>
 	</body>
 	<script src="../js/mui.min.js"></script>
 	<script>
@@ -312,8 +342,22 @@
 				showMenu = false;
 			}
 		}
+		//重写mui.menu方法，Android版本menu按键按下可自动打开、关闭侧滑菜单；
+		mui.menu = function() {
+			if (showMenu) {
+				closeMenu();
+			} else {
+				openMenu();
+			}
+		}
 		document.getElementById("shai_xuan").addEventListener('tap', openMenu);
 		(function($) {
+			mui('#flow-body').on('tap', 'li', function() {
+				var id = this.getAttribute("id");
+				//mui("#bottomPopover").show();
+				mui("#bottomPopover").popover('toggle');
+				//$("#modal").toggle('mui-active');
+			});
 			$('.mui-pagination').on('tap', 'a', function() {
 				var li = this.parentNode;
 				var classList = li.classList;

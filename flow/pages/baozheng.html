@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8">
-		<title>保函清单</title>
+		<title>保证金</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -56,7 +55,7 @@
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-icon mui-icon-bars mui-pull-left"></a>
 			<a id="info" class="mui-icon mui-icon-search mui-pull-right" style="color: #999;"></a>
-			<h1 id="title" class="mui-title">保函清单</h1>
+			<h1 id="title" class="mui-title">保证金</h1>
 		</header>
 		<div class="mui-content flow-content">
 			<section class="flow-search mui-table">
@@ -75,7 +74,7 @@
 							项目名称
 						</div>
 						<div class="mui-table-cell mui-col-xs-4">
-							开具金额
+							支付金额
 						</div>
 						<div class="mui-table-cell mui-col-xs-4">
 							截止时间
@@ -232,7 +231,7 @@
 			<div class="flow-popover-body">
 				<header class="mui-bar mui-bar-nav">
 					<a class="mui-icon mui-icon-close mui-pull-right" href="#bottomPopover"></a>
-					<h1 class="mui-title">保函清单</h1>
+					<h1 class="mui-title">保证金</h1>
 				</header>
 				<div class="mui-content flow-model-content" style="height: 100%;">
 					<div class="mui-table">
@@ -249,13 +248,19 @@
 					</div>
 					<div class="mui-table">
 						<div class="mui-table-cell mui-col-xs-3">
+							支付金额：
+						</div>
+						<div id="baohan_endtime">50000</div>
+					</div>
+					<div class="mui-table">
+						<div class="mui-table-cell mui-col-xs-3">
 							截止时间：
 						</div>
 						<div id="baohan_endtime">2015-12-12</div>
 					</div>
 					<div class="mui-table">
 						<div class="mui-table-cell mui-col-xs-3">
-							开具时间：
+							提交时间：
 						</div>
 						<div id="baohan_starttime">2015-12-12</div>
 					</div>
@@ -267,13 +272,7 @@
 					</div>
 					<div class="mui-table">
 						<div class="mui-table-cell mui-col-xs-3">
-							保函类型：
-						</div>
-						<div id="baohan_type">履行保函</div>
-					</div>
-					<div class="mui-table">
-						<div class="mui-table-cell mui-col-xs-3">
-							保函状态：
+							备注：
 						</div>
 						<div id="baohan_status">在用</div>
 					</div>
