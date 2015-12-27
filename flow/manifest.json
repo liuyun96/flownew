@@ -226,7 +226,8 @@
 					"css/flow.css",
 					"css/mymui.css",
 					"js/mui.min.js",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"js/jquery.js"
 				],
 				"refer": [
 					"pages/baohan-shai.html",

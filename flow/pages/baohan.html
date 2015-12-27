@@ -84,7 +84,7 @@
 				</li>
 			</ul>
 			<ul id="flow-body" class="mui-table-view mui-table-view-striped mui-table-view-condensed flow-ul">
-				<li class="mui-table-view-cell flow-li">
+				<li id="flow_li_1" class="mui-table-view-cell flow-li">
 					<div class="mui-table">
 						<div class="mui-table-cell num">
 							01
@@ -223,9 +223,62 @@
 		</div>
 		<nav class="flow-bottom-back">
 			<button type="button" class="mui-btn mui-action-back">
-					返回
+				返回
 			</button>
 		</nav>
+
+		<!--右下角弹出菜单-->
+		<section id="bottomPopover" class="mui-popover mui-popover-bottom flow-popover">
+			<div class="flow-popover-body">
+				<header class="mui-bar mui-bar-nav">
+					<a class="mui-icon mui-icon-close mui-pull-right" href="#bottomPopover"></a>
+					<h1 class="mui-title">保函清单</h1>
+				</header>
+				<div class="mui-content flow-model-content" style="height: 100%;">
+					<div class="mui-table">
+						<div class="mui-table-cell mui-col-xs-3">
+							区域：
+						</div>
+						<div id="baohan_area">南昌市</div>
+					</div>
+					<div class="mui-table">
+						<div class="mui-table-cell mui-col-xs-3">
+							项目名称：
+						</div>
+						<div id="baohan_project_name">绿地玫瑰城项目</div>
+					</div>
+					<div class="mui-table">
+						<div class="mui-table-cell mui-col-xs-3">
+							截止时间：
+						</div>
+						<div id="baohan_endtime">2015-12-12</div>
+					</div>
+					<div class="mui-table">
+						<div class="mui-table-cell mui-col-xs-3">
+							开具时间：
+						</div>
+						<div id="baohan_starttime">2015-12-12</div>
+					</div>
+					<div class="mui-table">
+						<div class="mui-table-cell mui-col-xs-3">
+							开具金额：
+						</div>
+						<div id="baonhan_money">30000.00</div>
+					</div>
+					<div class="mui-table">
+						<div class="mui-table-cell mui-col-xs-3">
+							保函类型：
+						</div>
+						<div id="baohan_type">履行保函</div>
+					</div>
+					<div class="mui-table">
+						<div class="mui-table-cell mui-col-xs-3">
+							保函状态：
+						</div>
+						<div id="baohan_status">在用</div>
+					</div>
+				</div>
+		</section>
 	</body>
 	<script src="../js/mui.min.js"></script>
 	<script>
@@ -374,7 +427,7 @@
 				showMenu = false;
 			}
 		}
-	 	//重写mui.menu方法，Android版本menu按键按下可自动打开、关闭侧滑菜单；
+		//重写mui.menu方法，Android版本menu按键按下可自动打开、关闭侧滑菜单；
 		mui.menu = function() {
 			if (showMenu) {
 				closeMenu();
@@ -382,10 +435,14 @@
 				openMenu();
 			}
 		}
-		
 		document.getElementById("shai_xuan").addEventListener('tap', openMenu);
-		
 		(function($) {
+			mui('#flow-body').on('tap', 'li', function() {
+				var id = this.getAttribute("id");
+				//mui("#bottomPopover").show();
+				mui("#bottomPopover").popover('toggle');
+				//$("#modal").toggle('mui-active');
+			});
 			$('.mui-pagination').on('tap', 'a', function() {
 				var li = this.parentNode;
 				var classList = li.classList;
@@ -426,7 +483,6 @@
 					}
 				}
 			});
-			
 		})(mui);
 	</script>
 

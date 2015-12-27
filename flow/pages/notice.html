@@ -15,6 +15,7 @@
 			/*********
 			 * self
 			 */
+			
 			.mui-control-item {
 				width: 33.3% !important;
 			}
@@ -23,7 +24,7 @@
 				border-right: 1px solid #bbb !important;
 			}
 			
-			.mui-badge-danger{
+			.mui-badge-danger {
 				position: absolute;
 			}
 		</style>
@@ -177,6 +178,12 @@
 					indicators: true, //是否显示滚动条
 					deceleration: deceleration
 				});
+				
+				mui('.mui-table-view-cell').on('tap', 'a', function() {
+					var id = this.getAttribute("id");
+					mui.toast('欢迎体验Hello MUI');
+				});
+				
 				$.ready(function() {
 					//循环初始化所有下拉刷新，上拉加载。
 					$.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {

@@ -38,3 +38,34 @@
 	bottom: 65px;
 	right: 15px;
 }
+
+.flow-popover{
+	background-color:rgba(0,0,0,.3);
+}
+
+.flow-popover .mui-bar-nav{
+	background: white;
+}
+
+.flow-popover .mui-bar-nav a{
+	color: #000000;
+}
+
+.flow-popover .mui-bar .mui-title{
+	color: #000000;
+}
+
+.flow-popover .flow-popover-body{
+	height: 50%;
+	position: fixed;
+	bottom: 0px;
+}
+
+.flow-popover .mui-bar-nav{
+	top:auto;
+}
+
+.flow-model-content .mui-table{
+	padding-left: 15px;
+	padding-top: 5px;
+}
