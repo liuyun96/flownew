@@ -1,0 +1,35 @@
+	.mui-table h4,
+	.mui-table h5,
+	.mui-table .mui-h5,
+	.mui-table .mui-h6,
+	.mui-table p {
+		margin-top: 0;
+	}
+	
+	.mui-table h4 {
+		line-height: 21px;
+		font-weight: 500;
+	}
+	
+	.mui-table .oa-icon {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+	
+	.mui-table .oa-icon-star-filled {
+		color: #f14e41;
+	}
+	
+	body {
+		color: RGB(157, 164, 169);
+		font-size: 15px;
+		background: white;
+	}
+	/******
+		     * self
+		     */
+	
+	#pullrefresh {
+		padding-top: 95px;
+	}

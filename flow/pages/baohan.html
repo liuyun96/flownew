@@ -10,60 +10,7 @@
 		<link rel="stylesheet" href="../css/mui.min.css">
 		<link rel="stylesheet" href="../css/flow.css">
 		<link rel="stylesheet" href="../css/mymui.css">
-		<style>
-			.mui-table h4,
-			.mui-table h5,
-			.mui-table .mui-h5,
-			.mui-table .mui-h6,
-			.mui-table p {
-				margin-top: 0;
-			}
-			
-			.mui-table h4 {
-				line-height: 21px;
-				font-weight: 500;
-			}
-			
-			.mui-table .oa-icon {
-				position: absolute;
-				right: 0;
-				bottom: 0;
-			}
-			
-			.mui-table .oa-icon-star-filled {
-				color: #f14e41;
-			}
-			
-			body {
-				color: RGB(157, 164, 169);
-				font-size: 15px;
-				background: white;
-			}
-			/******
-		     * self
-		     */
-			
-			.flow-search {
-				height: 45px;
-				line-height: 45px;
-				padding-left: 15px;
-				padding-right: 15px;
-			}
-			
-			.mui-scroll-wrapper {
-				top: 50px;
-				z-index: 10;
-			}
-			
-			.mui-bar-nav~.mui-content {
-				margin-top: 45px;
-				padding-top: 0px;
-			}
-			
-			#pullrefresh {
-				margin-top: 84px;
-			}
-		</style>
+		<link rel="stylesheet" href="../css/baohan.css">
 	</head>
 
 	<body>
@@ -72,7 +19,7 @@
 			<a id="info" class="mui-icon mui-icon-search mui-pull-right" style="color: #999;"></a>
 			<h1 id="title" class="mui-title">保函清单</h1>
 		</header>
-		<div class="mui-content">
+		<div id="pullrefresh" class="mui-content  mui-scroll-wrapper">
 			<section class="flow-search mui-table">
 				<div class="mui-table-cell mui-col-xs-9">检索结果</div>
 				<div id="shai_xuan" class="mui-table-cell mui-col-xs-3 mui-text-right">筛选</div>
@@ -97,8 +44,6 @@
 					</div>
 				</li>
 			</ul>
-		</div>
-		<div id="pullrefresh" class="mui-content  mui-scroll-wrapper">
 			<div class="mui-scroll">
 				<!--数据列表-->
 				<ul id="flow-body" class="mui-table-view mui-table-view-striped mui-table-view-condensed flow-ul">
@@ -106,7 +51,6 @@
 				</ul>
 			</div>
 		</div>
-
 		<!--右下角弹出菜单-->
 		<section id="bottomPopover" class="mui-popover mui-popover-bottom flow-popover">
 			<div class="flow-popover-body">
@@ -187,159 +131,20 @@
 			</li>
 			<%}%>
 	</script>
-	<script type="text/javascript">
-		window.onload = function() {
-			//使用
-		}
-	</script>
 	<script>
-		var main, menu, mask = mui.createMask(_closeMenu);
-		var showMenu = false;
-		//整体滑动暂不支持android手机，因为两个页面的移动动画，无法保证同步性；
-		if (!mui.os.android) {
-			//整体滑动暂不支持android手机，因为两个页面的移动动画，无法保证同步性；
-			//document.getElementById("move-togger").classList.remove('mui-hidden');
-			var spans = document.querySelectorAll('.android-only');
-			for (var i = 0, len = spans.length; i < len; i++) {
-				spans[i].style.display = "none";
-			}
-		}
-		mui.init({
-			pullRefresh: {
-				container: '#pullrefresh',
-				down: {
-					callback: pulldownRefresh
-				},
-				up: {
-					contentrefresh: '正在加载...',
-					callback: pullupRefresh
-				}
-			},
-			swipeBack: false,
-			beforeback: back //重写back
-		});
-
-		function back() {
-			if (showMenu) {
-				//菜单处于显示状态，返回键应该先关闭菜单,阻止主窗口执行mui.back逻辑；
-				closeMenu();
-				return false;
-			} else {
-				//菜单处于隐藏状态，执行返回时，要先close菜单页面，然后继续执行mui.back逻辑关闭主窗口；
-				menu.close('none');
-				return true;
-			}
-		}
-		//plusReady事件后，自动创建menu窗口；
-		mui.plusReady(function() {
-			main = plus.webview.currentWebview();
-			//setTimeout的目的是等待窗体动画结束后，再执行create webview操作，避免资源竞争，导致窗口动画不流畅；
-			setTimeout(function() {
-				menu = mui.preload({
-					id: 'baohan-shai',
-					url: 'baohan-shai.html',
-					styles: {
-						left: "30%",
-						width: '70%',
-						zindex: 9997
-					}
-				});
-			}, 300);
-		});
-		/*
-		 * 显示菜单菜单
-		 */
-		function openMenu() {
-			if (!showMenu) {
-				//解决android 4.4以下版本webview移动时，导致fixed定位元素错乱的bug;
-				if (mui.os.android && parseFloat(mui.os.version) < 4.4) {
-					document.querySelector("header.mui-bar").style.position = "static";
-					//同时需要修改以下.mui-contnt的padding-top，否则会多出空白；
-					document.querySelector(".mui-bar-nav~.mui-content").style.paddingTop = "0px";
-				}
-				//侧滑菜单处于隐藏状态，则立即显示出来；
-				//显示完毕后，根据不同动画效果移动窗体；
-				//主窗体开始侧滑；
-				if (menu != null) {
-					menu.show('none', 0, function() {
-						menu.setStyle({
-							left: '30%',
-							transition: {
-								duration: 150
-							}
-						});
-					});
-					//显示主窗体遮罩
-					mask.show();
-					showMenu = true;
-				}
-			}
-		}
-
-		function closeMenu() {
-			//窗体移动
-			_closeMenu();
-			//关闭遮罩
-			mask.close();
-		}
-		/**
-		 * 关闭侧滑菜单(业务部分)
-		 */
-		function _closeMenu() {
-			if (showMenu) {
-				//解决android 4.4以下版本webview移动时，导致fixed定位元素错乱的bug;
-				if (mui.os.android && parseFloat(mui.os.version) < 4.4) {
-					document.querySelector("header.mui-bar").style.position = "fixed";
-					//同时需要修改以下.mui-contnt的padding-top，否则会多出空白；
-					document.querySelector(".mui-bar-nav~.mui-content").style.paddingTop = "44px";
-				}
-				//主窗体开始侧滑；
-				menu.setStyle({
-					left: '100%',
-					transition: {
-						duration: 150
-					}
-				});
-				//等窗体动画结束后，隐藏菜单webview，节省资源；
-				setTimeout(function() {
-					menu.hide();
-				}, 300);
-				showMenu = false;
-			}
-		}
-		document.getElementById("shai_xuan").addEventListener('tap', openMenu);
-		//在android4.4中的swipe事件，需要preventDefault一下，否则触发不正常
-		//故，在dragleft，dragright中preventDefault
-		window.addEventListener('dragright', function(e) {
-			e.detail.gesture.preventDefault();
-		});
-		window.addEventListener('dragleft', function(e) {
-			e.detail.gesture.preventDefault();
-		});
-		//主界面向左滑动，若菜单未显示，则显示菜单；否则不做任何操作；
-		window.addEventListener("swipeleft", openMenu);
-		//主界面向右滑动，若菜单已显示，则关闭菜单；否则，不做任何操作；
-		window.addEventListener("swiperight", closeMenu);
-		//menu页面向右滑动，关闭菜单；
-		window.addEventListener("menu:swiperight", closeMenu);
-		//重写mui.menu方法，Android版本menu按键按下可自动打开、关闭侧滑菜单；
-		mui.menu = function() {
-			if (showMenu) {
-				closeMenu();
-			} else {
-				openMenu();
-			}
-		}
 		mui('#flow-body').on('tap', 'li', function() {
 			var id = this.getAttribute("id");
 			//mui("#bottomPopover").show();
 			mui("#bottomPopover").popover('toggle');
 			//$("#modal").toggle('mui-active');
 		});
-
-		function initData(flag) {
+		function initData(data, flag) {
 			var bat = baidu.template;
-			var data = {
+			var html = bat('tpl_list', data);
+			var table = document.body.querySelector('#flow-body');
+			table.innerHTML = table.innerHTML + html;
+		}
+		var data = {
 				title: '前端攻城师',
 				list: [{
 					id: 1,
@@ -359,19 +164,56 @@
 					project_name: '绿地玫瑰城项目',
 					total_money: '30000.10',
 					date: '2015-12-12'
+				}, {
+					id: 3,
+					city: '南昌',
+					project_name: '绿地玫瑰城项目',
+					total_money: '30000.10',
+					date: '2015-12-12'
+				}, {
+					id: 3,
+					city: '南昌',
+					project_name: '绿地玫瑰城项目',
+					total_money: '30000.10',
+					date: '2015-12-12'
+				}, {
+					id: 3,
+					city: '南昌',
+					project_name: '绿地玫瑰城项目',
+					total_money: '30000.10',
+					date: '2015-12-12'
+				}, {
+					id: 3,
+					city: '南昌',
+					project_name: '绿地玫瑰城项目',
+					total_money: '30000.10',
+					date: '2015-12-12'
+				}, {
+					id: 3,
+					city: '南昌',
+					project_name: '绿地玫瑰城项目',
+					total_money: '30000.10',
+					date: '2015-12-12'
+				}, {
+					id: 3,
+					city: '南昌',
+					project_name: '绿地玫瑰城项目',
+					total_money: '30000.10',
+					date: '2015-12-12'
+				}, {
+					id: 3,
+					city: '南昌',
+					project_name: '绿地玫瑰城项目',
+					total_money: '30000.10',
+					date: '2015-12-12'
 				}]
-			};
-			var html = bat('tpl_list', data);
-			var oldhtml = document.getElementById('flow-body').innerHTML;
-			document.getElementById('flow-body').innerHTML = oldhtml + html;
-		}
-		/**
-		 * 下拉刷新具体业务实现
-		 */
+			}
+			/**
+			 * 下拉刷新具体业务实现
+			 */
 		function pulldownRefresh() {
 			setTimeout(function() {
-				//table.insertBefore(li, table.firstChild);
-				initData("before");
+				initData(data, "before");
 				mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
 			}, 1500);
 		}
@@ -380,11 +222,12 @@
 		 * 上拉加载具体业务实现
 		 */
 		function pullupRefresh() {
-			setTimeout(function() {
-				mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
-				initData("after");
-			}, 1500);
+			mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
+			initData(data, "after");
 		}
+	</script>
+	<script type="text/javascript" src="../js/baohan.js"></script>
+	<script>
 		if (mui.os.plus) {
 			mui.plusReady(function() {
 				setTimeout(function() {

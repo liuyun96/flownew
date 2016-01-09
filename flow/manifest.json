@@ -235,7 +235,10 @@
 					"js/mui.min.js",
 					"css/mui.min.css",
 					"js/jquery.js",
-					"js/baiduTemplate.js"
+					"js/baiduTemplate.js",
+					"js/laytpl.js",
+					"css/baohan.css",
+					"js/baohan.js"
 				],
 				"refer": [
 					"pages/baohan-shai.html",
@@ -317,7 +320,11 @@
 					"fonts/mui.ttf",
 					"css/flow.css",
 					"css/mui.min.css",
-					"css/mymui.css"
+					"css/mymui.css",
+					"js/baiduTemplate.js",
+					"js/baohan.js",
+					"js/laytpl.js",
+					"css/baohan.css"
 				],
 				"refer": [
 					"pages/baohan-shai.html"
@@ -341,7 +348,11 @@
 					"fonts/mui.ttf",
 					"css/flow.css",
 					"css/mui.min.css",
-					"css/mymui.css"
+					"css/mymui.css",
+					"js/baiduTemplate.js",
+					"js/baohan.js",
+					"js/laytpl.js",
+					"css/baohan.css"
 				],
 				"refer": [
 					"pages/baohan-shai.html"
@@ -355,7 +366,9 @@
 					"fonts/mui.ttf",
 					"css/flow.css",
 					"css/mui.min.css",
-					"css/mymui.css"
+					"css/mymui.css",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -375,7 +388,9 @@
 				"resources": [
 					"js/mui.min.js",
 					"fonts/mui.ttf",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"js/mui.pullToRefresh.js",
+					"js/mui.pullToRefresh.material.js"
 				],
 				"refer": [
 					"pages/flow_detail.html"
@@ -426,9 +441,7 @@
 				"js/feedback-page.js",
 				"js/mui.indexedlist.js",
 				"js/mui.view.js",
-				"js/mui.pullToRefresh.js",
 				"js/mui.picker.js",
-				"js/mui.pullToRefresh.material.js",
 				"css/mui.listpicker.css",
 				"js/mui.lazyload.js",
 				"css/mui.picker.css",

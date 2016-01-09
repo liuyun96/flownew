@@ -1,43 +1,45 @@
-
 /***
  *公用的 
  */
 
-.line95{
+.line95 {
 	width: 95%;
 	height: 1px;
 	background: #bbb;
 	margin-left: 2.5%;
 }
 
-.flow-content{
+.flow-content {
 	margin: 0 auto;
 	width: 97%;
 }
 
-.flow-content section{
-	padding-top: 5px;	
+.flow-content section {
+	padding-top: 5px;
 }
 
 .fs13 {
 	font-size: 13px !important;
 }
 
-.flow-content .mui-table-view{
+.flow-content .mui-table-view {
 	background: none;
-	position:static;	
+	position: static;
 }
+
+
 /*****
  * 首页
  */
 
-.index-news .title{
+.index-news .title {
 	height: 35px;
 	line-height: 35px;
 	padding-left: 15px;
 	font-size: 14px;
 	background: white;
 }
+
 
 /***
  * 进度流程 start
@@ -53,7 +55,7 @@
 	font: 12px/180% Arial, Helvetica, sans-serif, "新宋体";
 }
 
-.flow-step-view .selected{
+.flow-step-view .selected {
 	color: orangered;
 }
 
@@ -94,30 +96,31 @@
 	width: 90%;
 }
 
+
 /***
  * 进度流程 end
  */
 
-.flow-ul .num{
-	color: RGB(249,164,135);
+.flow-ul .num {
+	color: RGB(249, 164, 135);
 	padding-right: 3px;
 	width: 20px;
 	text-align: left;
 }
 
-.flow-ul .head{
-	background: RGB(240,250,252);
+.flow-ul .head {
+	background: RGB(240, 250, 252);
 }
 
-.flow-content .mui-table-view{
-	position: static;	
+.flow-content .mui-table-view {
+	position: static;
 }
 
-.flow-li{
+.flow-li {
 	font-size: 12px;
 }
 
-.flow-bottom-back{
+.flow-bottom-back {
 	position: fixed;
 	bottom: 0px;
 	height: 50px;
@@ -125,47 +128,64 @@
 	text-align: center;
 	width: 100%;
 }
-.flow-bottom-back button{
-	background: RGB(133,143,150);
+
+.flow-bottom-back button {
+	background: RGB(133, 143, 150);
 	color: black;
 	font-size: 20px;
 	width: 100%;
 	height: 100%;
 }
 
-.flow-pagination{
+.flow-pagination {
 	position: absolute;
 	bottom: 65px;
 	right: 15px;
 }
 
-.flow-popover{
-	background-color:rgba(0,0,0,.3);
+.flow-popover {
+	background-color: rgba(0, 0, 0, .3);
 }
 
-.flow-popover .mui-bar-nav{
+.flow-popover .mui-bar-nav {
 	background: white;
 }
 
-.flow-popover .mui-bar-nav a{
+.flow-popover .mui-bar-nav a {
 	color: #000000;
 }
 
-.flow-popover .mui-bar .mui-title{
+.flow-popover .mui-bar .mui-title {
 	color: #000000;
 }
 
-.flow-popover .flow-popover-body{
+.flow-popover .flow-popover-body {
 	height: 50%;
 	position: fixed;
 	bottom: 0px;
 }
 
-.flow-popover .mui-bar-nav{
-	top:auto;
+.flow-popover .mui-bar-nav {
+	top: auto;
 }
 
-.flow-model-content .mui-table{
+.flow-model-content .mui-table {
 	padding-left: 15px;
 	padding-top: 5px;
+}
+
+
+/****
+ * 筛选
+ */
+
+.flow-search {
+	background: white;
+	position: fixed;
+	top: 45px;
+	z-index: 10;
+	height: 45px;
+	line-height: 45px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
