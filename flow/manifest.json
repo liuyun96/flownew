@@ -213,10 +213,16 @@
 					"pages/offcanvas-drag-left-plus-main.html",
 					"pages/tab-webview-subpage-main.html",
 					"pages/list.html",
-					"list.html"
+					"list.html",
+					"css/flow.css",
+					"images/cbd.jpg"
 				],
 				"refer": [
-					"index-menu.html"
+					"index-menu.html",
+					"pages/message_detail.html",
+					"pages/flow_list.html",
+					"pages/borrow.html",
+					"pages/baozheng.html"
 				],
 				"priority": 0
 			},
@@ -311,7 +317,9 @@
 					"css/mui.min.css",
 					"css/mymui.css"
 				],
-				"refer": [],
+				"refer": [
+					"pages/baohan-shai.html"
+				],
 				"priority": 0
 			},
 			"pages/project.html": {
@@ -333,7 +341,9 @@
 					"css/mui.min.css",
 					"css/mymui.css"
 				],
-				"refer": [],
+				"refer": [
+					"pages/baohan-shai.html"
+				],
 				"priority": 0
 			},
 			"pages/notice.html": {
@@ -344,6 +354,39 @@
 					"css/flow.css",
 					"css/mui.min.css",
 					"css/mymui.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/message_detail.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/app.css",
+					"fonts/mui.ttf",
+					"css/flow.css",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/flow_list.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"pages/flow_detail.html"
+				],
+				"priority": 0
+			},
+			"pages/flow_detail.html": {
+				"resources": [
+					"css/app.css",
+					"css/flow.css",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"fonts/mui.ttf"
 				],
 				"refer": [],
 				"priority": 0

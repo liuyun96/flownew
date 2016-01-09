@@ -84,104 +84,7 @@
 				</li>
 			</ul>
 			<ul id="flow-body" class="mui-table-view mui-table-view-striped mui-table-view-condensed flow-ul">
-				<li id="flow_li_1" class="mui-table-view-cell flow-li">
-					<div class="mui-table">
-						<div class="mui-table-cell num">
-							01
-						</div>
-						<div class="mui-table-cell mui-col-xs-2">
-							南昌市
-						</div>
-						<div class="mui-table-cell mui-col-xs-5">
-							绿地玫瑰城项目
-						</div>
-						<div class="mui-table-cell mui-col-xs-4">
-							30,000.00
-						</div>
-						<div class="mui-table-cell mui-col-xs-4">
-							2015-10-21
-						</div>
-					</div>
-				</li>
-				<li class="mui-table-view-cell flow-li">
-					<div class="mui-table">
-						<div class="mui-table-cell num">
-							02
-						</div>
-						<div class="mui-table-cell mui-col-xs-2">
-							南昌市
-						</div>
-						<div class="mui-table-cell mui-col-xs-5">
-							绿地玫瑰城项目
-						</div>
-						<div class="mui-table-cell mui-col-xs-4">
-							30,000.00
-						</div>
-						<div class="mui-table-cell mui-col-xs-4">
-							2015-10-21
-						</div>
-					</div>
-				</li>
-
-				<li class="mui-table-view-cell flow-li">
-					<div class="mui-table">
-						<div class="mui-table-cell num">
-							03
-						</div>
-						<div class="mui-table-cell mui-col-xs-2">
-							南昌市
-						</div>
-						<div class="mui-table-cell mui-col-xs-5">
-							绿地玫瑰城项目
-						</div>
-						<div class="mui-table-cell mui-col-xs-4">
-							30,000.00
-						</div>
-						<div class="mui-table-cell mui-col-xs-4">
-							2015-10-21
-						</div>
-					</div>
-				</li>
-
-				<li class="mui-table-view-cell flow-li">
-					<div class="mui-table">
-						<div class="mui-table-cell num">
-							04
-						</div>
-						<div class="mui-table-cell mui-col-xs-2">
-							南昌市
-						</div>
-						<div class="mui-table-cell mui-col-xs-5">
-							绿地玫瑰城项目
-						</div>
-						<div class="mui-table-cell mui-col-xs-4">
-							30,000.00
-						</div>
-						<div class="mui-table-cell mui-col-xs-4">
-							2015-10-21
-						</div>
-					</div>
-				</li>
-
-				<li class="mui-table-view-cell flow-li">
-					<div class="mui-table">
-						<div class="mui-table-cell num">
-							05
-						</div>
-						<div class="mui-table-cell mui-col-xs-2">
-							南昌市
-						</div>
-						<div class="mui-table-cell mui-col-xs-5">
-							绿地玫瑰城项目
-						</div>
-						<div class="mui-table-cell mui-col-xs-4">
-							30,000.00
-						</div>
-						<div class="mui-table-cell mui-col-xs-4">
-							2015-10-21
-						</div>
-					</div>
-				</li>
+				
 			</ul>
 			<ul class="mui-pagination flow-pagination">
 				<li class="mui-previous mui-disabled">
@@ -281,10 +184,65 @@
 		</section>
 	</body>
 	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript" src="../js/baiduTemplate.js"></script>
+	<script type="text/javascript" src="../js/laytpl.js"></script>
+
+	<script id="tpl_list" type="text/template">
+		<%for(var i=0;i<list.length;i++){%>
+			<li id="flow_li_<%=list[i].id %>" class="mui-table-view-cell flow-li">
+				<div class="mui-table">
+					<div class="mui-table-cell num">
+						<%=list[i].id %>
+					</div>
+					<div class="mui-table-cell mui-col-xs-2">
+						<%=list[i].city %>
+					</div>
+					<div class="mui-table-cell mui-col-xs-5">
+						<%=list[i].project_name %>
+					</div>
+					<div class="mui-table-cell mui-col-xs-4">
+						<%=list[i].total_money %>
+					</div>
+					<div class="mui-table-cell mui-col-xs-4">
+						<%=list[i].date %>
+					</div>
+				</div>
+			</li>
+			<%}%>
+	</script>
+	<script type="text/javascript">
+		window.onload = function() {
+			//使用
+			var bat = baidu.template;
+			var data = {
+				title: '前端攻城师',
+				list: [{
+					id: 1,
+					city: '南昌',
+					project_name: '绿地玫瑰城项目',
+					total_money: '30000.10',
+					date: '2015-12-12'
+				}, {
+					id: 2,
+					city: '南昌',
+					project_name: '绿地玫瑰城项目',
+					total_money: '30000.10',
+					date: '2015-12-12'
+				}, {
+					id: 3,
+					city: '南昌',
+					project_name: '绿地玫瑰城项目',
+					total_money: '30000.10',
+					date: '2015-12-12'
+				}]
+			};
+			var html = bat('tpl_list', data);
+			document.getElementById('flow-body').innerHTML = html;
+		}
+	</script>
 	<script>
 		var main, menu, mask = mui.createMask(_closeMenu);
-		var showMenu = false,
-			mode = 'main-move';
+		var showMenu = false;
 		//整体滑动暂不支持android手机，因为两个页面的移动动画，无法保证同步性；
 		if (!mui.os.android) {
 			//整体滑动暂不支持android手机，因为两个页面的移动动画，无法保证同步性；
@@ -295,8 +253,21 @@
 			}
 		}
 		mui.init({
-			swipeBack: true //启用右滑关闭功能
+			swipeBack: false,
+			beforeback: back //重写back
 		});
+
+		function back() {
+			if (showMenu) {
+				//菜单处于显示状态，返回键应该先关闭菜单,阻止主窗口执行mui.back逻辑；
+				closeMenu();
+				return false;
+			} else {
+				//菜单处于隐藏状态，执行返回时，要先close菜单页面，然后继续执行mui.back逻辑关闭主窗口；
+				menu.close('none');
+				return true;
+			}
+		}
 		//plusReady事件后，自动创建menu窗口；
 		mui.plusReady(function() {
 			main = plus.webview.currentWebview();
@@ -326,44 +297,20 @@
 				}
 				//侧滑菜单处于隐藏状态，则立即显示出来；
 				//显示完毕后，根据不同动画效果移动窗体；
-				menu.show('none', 0, function() {
-					switch (mode) {
-						case 'main-move':
-							//主窗体开始侧滑；
-							main.setStyle({
-								left: '-70%',
-								transition: {
-									duration: 150
-								}
-							});
-							break;
-						case 'menu-move':
-							menu.setStyle({
-								left: '30%',
-								transition: {
-									duration: 150
-								}
-							});
-							break;
-						case 'all-move':
-							main.setStyle({
-								left: '-70%',
-								transition: {
-									duration: 150
-								}
-							});
-							menu.setStyle({
-								left: '30%',
-								transition: {
-									duration: 150
-								}
-							});
-							break;
-					}
-				});
-				//显示主窗体遮罩
-				mask.show();
-				showMenu = true;
+				//主窗体开始侧滑；
+				if (menu != null) {
+					menu.show('none', 0, function() {
+						menu.setStyle({
+							left: '30%',
+							transition: {
+								duration: 150
+							}
+						});
+					});
+					//显示主窗体遮罩
+					mask.show();
+					showMenu = true;
+				}
 			}
 		}
 
@@ -384,42 +331,13 @@
 					//同时需要修改以下.mui-contnt的padding-top，否则会多出空白；
 					document.querySelector(".mui-bar-nav~.mui-content").style.paddingTop = "44px";
 				}
-				switch (mode) {
-					case 'main-move':
-						//主窗体开始侧滑；
-						main.setStyle({
-							left: '0',
-							transition: {
-								duration: 150
-							}
-						});
-						break;
-					case 'menu-move':
-						//主窗体开始侧滑；
-						menu.setStyle({
-							left: '100%',
-							transition: {
-								duration: 150
-							}
-						});
-						break;
-					case 'all-move':
-						//主窗体开始侧滑；
-						main.setStyle({
-							left: '0',
-							transition: {
-								duration: 150
-							}
-						});
-						//menu页面同时移动
-						menu.setStyle({
-							left: '100%',
-							transition: {
-								duration: 150
-							}
-						});
-						break;
-				}
+				//主窗体开始侧滑；
+				menu.setStyle({
+					left: '100%',
+					transition: {
+						duration: 150
+					}
+				});
 				//等窗体动画结束后，隐藏菜单webview，节省资源；
 				setTimeout(function() {
 					menu.hide();
@@ -427,6 +345,21 @@
 				showMenu = false;
 			}
 		}
+		document.getElementById("shai_xuan").addEventListener('tap', openMenu);
+		//在android4.4中的swipe事件，需要preventDefault一下，否则触发不正常
+		//故，在dragleft，dragright中preventDefault
+		window.addEventListener('dragright', function(e) {
+			e.detail.gesture.preventDefault();
+		});
+		window.addEventListener('dragleft', function(e) {
+			e.detail.gesture.preventDefault();
+		});
+		//主界面向左滑动，若菜单未显示，则显示菜单；否则不做任何操作；
+		window.addEventListener("swipeleft", openMenu);
+		//主界面向右滑动，若菜单已显示，则关闭菜单；否则，不做任何操作；
+		window.addEventListener("swiperight", closeMenu);
+		//menu页面向右滑动，关闭菜单；
+		window.addEventListener("menu:swiperight", closeMenu);
 		//重写mui.menu方法，Android版本menu按键按下可自动打开、关闭侧滑菜单；
 		mui.menu = function() {
 			if (showMenu) {
@@ -435,14 +368,13 @@
 				openMenu();
 			}
 		}
-		document.getElementById("shai_xuan").addEventListener('tap', openMenu);
+		mui('#flow-body').on('tap', 'li', function() {
+			var id = this.getAttribute("id");
+			//mui("#bottomPopover").show();
+			mui("#bottomPopover").popover('toggle');
+			//$("#modal").toggle('mui-active');
+		});
 		(function($) {
-			mui('#flow-body').on('tap', 'li', function() {
-				var id = this.getAttribute("id");
-				//mui("#bottomPopover").show();
-				mui("#bottomPopover").popover('toggle');
-				//$("#modal").toggle('mui-active');
-			});
 			$('.mui-pagination').on('tap', 'a', function() {
 				var li = this.parentNode;
 				var classList = li.classList;

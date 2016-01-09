@@ -1,3 +1,97 @@
+
+/***
+ *公用的 
+ */
+
+.line95{
+	width: 95%;
+	height: 1px;
+	background: #bbb;
+	margin-left: 2.5%;
+}
+
+.flow-content{
+	
+}
+
+.fs13 {
+	font-size: 13px !important;
+}
+
+
+.flow-content .mui-table-view{
+	background: none;
+	position:static;	
+}
+/*****
+ * 首页
+ */
+
+.index-news .title{
+	height: 30px;
+	padding-left: 15px;
+	font-size: 14px;
+}
+
+/***
+ * 进度流程 start
+ */
+
+.flow-step-view {
+	display: box;
+	box-orient: horizontal;
+	box-direction: reverse;
+	clear: both;
+	border-left: 3px solid #bbb;
+	margin-left: 30px;
+	font: 12px/180% Arial, Helvetica, sans-serif, "新宋体";
+}
+
+.flow-step-view .selected{
+	color: orangered;
+}
+
+.flow-step-view-cell {
+	padding-left: 20px;
+	position: relative;
+	height: 60px;
+	list-style: none;
+}
+
+.flow-step-view .step {
+	border-radius: 1em;
+	padding: 0.03em;
+	background: #bbb;
+	text-align: center;
+	line-height: 1.5em;
+	color: #fff;
+	position: absolute;
+	width: 1.4em;
+	height: 1.4em;
+	left: -10px;
+	top: 0px;
+}
+
+.flow-step-view-cell .selected {
+	background: orangered;
+	width: 2em;
+	height: 2em;
+	left: -14px;
+	vertical-align: middle;
+	line-height: 2.0em;
+	top: -5px;
+}
+
+.flow-step-view-cell .line {
+	height: 1px;
+	background: #bbb;
+	width: 90%;
+}
+
+/***
+ * 进度流程 end
+ */
+
 .flow-ul .num{
 	color: RGB(249,164,135);
 	padding-right: 3px;

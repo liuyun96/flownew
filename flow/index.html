@@ -3,20 +3,92 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>xx项目</title>
+		<title>Flow</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
 		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/flow.css">
+		<style>
+			.index-head-img{
+				text-align: center;	
+				padding-top: 10%;
+				padding-bottom: 5%;			
+			}
+			.index-hello{
+				padding-top: 10px;
+				padding-bottom: 10px;
+				font-size: 18px;
+				font-weight: bold;
+				color: black;
+			}
+		</style>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-			<a class="mui-icon mui-icon-bars mui-pull-left mui-plus-visible"></a>
-			<a id="info" class="mui-icon mui-icon-info-filled mui-pull-right" style="color: #999;"></a>
-			<h1 class="mui-title">xx项目</h1>
+			<a class="mui-icon mui-icon-bars mui-pull-left"></a>
+			<h1 class="mui-title">XXXXX管理平台</h1>
 		</header>
+		<div class="mui-content flow-content">
+			<section class="index-head-img">
+				<div><img src="images/cbd.jpg" width="90" ></div>
+				<p class="index-hello">你好，流行兰</p>
+			</section>
+			<ul id="index-tab-ul" class="mui-table-view mui-grid-view mui-grid-9">
+				<li id="flow_list" class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<span class="mui-icon  mui-icon-list"><span class="mui-badge">5</span></span>
+						<div class="mui-media-body">任务清单</div>
+					</a>
+				</li>
+				<li id="borrow" class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<span class="mui-icon mui-icon-bars"></span>
+						<div class="mui-media-body">负面清单</div>
+					</a>
+				</li>
+				<li id="notice" class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<span class="mui-icon mui-icon-chat"></span>
+						<div class="mui-media-body">公告</div>
+					</a>
+				</li>
+				<li id="baozheng" class="mui-table-view-cell mui-media mui-col-xs-6">
+					<a href="#">
+						<span class="mui-icon mui-icon-email"></span>
+						<div class="mui-media-body">消息</div>
+					</a>
+				</li>
+			</ul>
+			<section class="index-news">
+				<div class="title">
+					最新消息
+				</div>
+				<ul id="index-news-ul" class="mui-table-view mui-table-view-striped mui-table-view-condensed" style="padding-left:60px;">
+					<li class="mui-table-view-cell">
+						<div class="mui-table">
+							<div class="mui-table-cell mui-col-xs-8">
+								<p class="mui-h6 mui-ellipsis">Hi，李明明，申请交行信息卡，100元等你拿，李明明，申请交行信息卡，100元等你拿，</p>
+							</div>
+							<div class="mui-table-cell mui-col-xs-4 mui-text-right">
+								<span class="mui-h5">2015-12-18</span>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-table">
+							<div class="mui-table-cell mui-col-xs-8">
+								<p class="mui-h6 mui-ellipsis">Hi，李明明，申请交行信息卡，100元等你拿，李明明，申请交行信息卡，100元等你拿，</p>
+							</div>
+							<div class="mui-table-cell mui-col-xs-4 mui-text-right">
+								<span class="mui-h5">2015-12-18</span>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</section>
+		</div>
 		<script src="js/mui.min.js"></script>
 		<script src="js/update.js" type="text/javascript" charset="utf-8"></script>
 		<script>
@@ -29,22 +101,7 @@
 				gestureConfig: {
 					doubletap: true
 				},
-				subpages: [{
-					id: 'list',
-					url: 'list.html',
-					styles: {
-						top: '45px',
-						bottom: 0,
-						bounce: 'vertical'
-					}
-				}],
-				preloadPages: [{
-					"id": "baohan",
-					"url": "pages/baohan.html",
-					"styles": {
-						"popGesture": "hide"
-					}
-				}]
+				preloadPages: []
 			});
 			mui.plusReady(function() {
 				//仅支持竖屏显示
@@ -126,7 +183,7 @@
 					}, 300);
 				}
 			};
-			//点击左上角侧滑图标，打开侧滑菜单；
+			 //点击左上角侧滑图标，打开侧滑菜单；
 			document.querySelector('.mui-icon-bars').addEventListener('tap', function(e) {
 				if (showMenu) {
 					closeMenu();
@@ -134,18 +191,18 @@
 					openMenu();
 				}
 			});
-			//敲击顶部导航，内容区回到顶部
+			 //敲击顶部导航，内容区回到顶部
 			document.querySelector('header').addEventListener('doubletap', function() {
 				main.children()[0].evalJS('mui.scrollTo(0, 100)');
 			});
-			//主界面向右滑动，若菜单未显示，则显示菜单；否则不做任何操作
+			 //主界面向右滑动，若菜单未显示，则显示菜单；否则不做任何操作
 			window.addEventListener("swiperight", openMenu);
-			//主界面向左滑动，若菜单已显示，则关闭菜单；否则，不做任何操作；
+			 //主界面向左滑动，若菜单已显示，则关闭菜单；否则，不做任何操作；
 			window.addEventListener("swipeleft", closeMenu);
-			//侧滑菜单触发关闭菜单命令
+			 //侧滑菜单触发关闭菜单命令
 			window.addEventListener("menu:close", closeMenu);
 			window.addEventListener("menu:open", openMenu);
-			//重写mui.menu方法，Android版本menu按键按下可自动打开、关闭侧滑菜单；
+			 //重写mui.menu方法，Android版本menu按键按下可自动打开、关闭侧滑菜单；
 			mui.menu = function() {
 					if (showMenu) {
 						closeMenu();
@@ -153,46 +210,8 @@
 						openMenu();
 					}
 				}
-				//处理右上角关于图标的点击事件；
-			var subWebview = null,
-				template = null;
-			document.getElementById('info').addEventListener('tap', function() {
-				if (!mui.os.plus) {
-					mui.openWindow({
-						url: "examples/info.html",
-						id: "info",
-						show: {
-							aniShow: 'zoom-fade-out',
-							duration: 300
-						}
-					});
-					return;
-				}
-				if (subWebview == null) {
-					//获取共用父窗体
-					template = plus.webview.getWebviewById("default-main");
-				}
-				if (template) {
-					subWebview = template.children()[0];
-					subWebview.loadURL('examples/info.html');
-					//修改共用父模板的标题
-					mui.fire(template, 'updateHeader', {
-						title: '关于',
-						showMenu: false
-					});
-					template.show('slide-in-right', 150);
-				}
-				//				mui.openWindow({
-				//					url:"examples/info.html",
-				//					id:"info",
-				//					show:{
-				//						aniShow:'zoom-fade-out',
-				//						duration:300
-				//					}
-				//				});
-			});
-			//首页返回键处理
-			//处理逻辑：1秒内，连续两次按返回键，则退出应用；
+				//首页返回键处理
+				//处理逻辑：1秒内，连续两次按返回键，则退出应用；
 			var first = null;
 			mui.back = function() {
 				if (showMenu) {
@@ -212,6 +231,58 @@
 					}
 				}
 			};
+			(function($) {
+				var aniShow = "pop-in";
+				mui('#index-tab-ul').on('tap', 'li', function() {
+					//var id = this.getAttribute('href');
+					//var href = this.href;
+					var webview_style = {
+						popGesture: "close"
+					};
+					var id = this.getAttribute("id");
+					//侧滑菜单需动态控制一下zindex值；
+					mui.openWindow({
+						id: id,
+						url: "pages/" + id + ".html",
+						styles: webview_style,
+						show: {
+							aniShow: aniShow
+						},
+						extras: {
+							name: '传入参数',
+							version: '0.5.8'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+				});
+				
+				mui('#index-news-ul').on('tap', 'li', function() {
+					//var id = this.getAttribute('href');
+					//var href = this.href;
+					var webview_style = {
+						popGesture: "close"
+					};
+					var id = this.getAttribute("id");
+					//侧滑菜单需动态控制一下zindex值；
+					mui.openWindow({
+						id: id,
+						url: "pages/message_detail.html",
+						styles: webview_style,
+						show: {
+							aniShow: aniShow
+						},
+						extras: {
+							name: '传入参数',
+							version: '0.5.8'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+				});
+			})(mui);
 		</script>
 	</body>
 
