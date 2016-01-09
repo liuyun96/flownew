@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>公告消息详情页</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+		<link rel="stylesheet" type="text/css" href="../css/flow.css" />
+		<style type="text/css">
+			.message_info_body{
+				width: 100%;
+			    border-left: 10px solid transparent;
+			    border-right: 10px solid transparent;
+			    font-size: 16px;
+			    color: #505050;
+			    box-sizing: border-box;
+			    -webkit-box-sizing: border-box;
+			    -moz-box-sizing: border-box;
+			    -o-box-sizing: border-box;
+			    line-height: 1.5em;
+			    margin-bottom: 50px;
+			    padding-top: 10px;
+			}
+			.message_info_body img{
+				width: 100%;
+			}
+			.message-time{
+				text-align: right;
+				padding-right: 20px;
+				font-size: 12px;
+			}
+			.message-title{
+				text-align: center;
+				height: 40px;
+				line-height: 40px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">消息内容</h1>
+		</header>
+		<div class="mui-content flow-content">
+			<section>
+				<header>
+					<div class="message-title">绿地玫瑰城项目预算下午14:40召开</div>
+					<div class="message-time">2015-10-25 10:23</div>
+				</header>
+				<div class="line95"></div>
+				<article class="message_info_body">
+					<p style="text-align:center"><img src="http://image13.m1905.cn/uploadfile/2015/1222/20151222090039157.jpg" alt=""></p>
+					<p style="text-align:center;margin-bottom:20px;font-weight:bold;">哥伦比亚小姐(左)被迫当众被除下后冠，由上届冠军为菲律宾小姐(右)加冕。</p>
+					<p style="text-indent:2em;margin-bottom:20px;">20日揭晓的环球小姐选美总决赛出现了戏剧性的一幕——主持人竟念错后冠得主名单，将原本属于菲律宾小姐的后冠给了亚军哥伦比亚小姐。</p>
+					<p style="text-indent:2em;margin-bottom:20px;">据外媒报道，第64届环球小姐选美20日在美国拉斯韦加斯举行，主持人哈维最初宣布，本届选美比赛冠军由哥伦比亚佳丽阿雷瓦洛夺得，上届环球小姐为她戴上后冠，阿雷瓦洛带着美丽的笑容站到台前，接受观众的欢呼和祝贺，她也向观众飞吻答谢。<span style="text-indent: 2em;">突然，哈维一脸尴尬慢慢走到阿雷瓦洛身边，宣布他犯了大错看错了得奖名单，他说：“各位，我要道歉。哥伦比亚小姐是亚军，冠军是菲律宾小姐。”</span><span style="text-indent: 2em;">原来本届环姐冠军应该是菲律宾佳丽渥茲巴赫，阿雷瓦洛被迫当众被除下后冠，由上届冠军为渥茲巴赫加冕。</span></p>
+					<p
+					style="text-indent: 2em; margin-bottom: 20px;">事后，哈维在自己的推特上发文称：“首先，我向哥伦比亚小姐和菲律宾小姐致歉，我犯了一个巨大的错误。其次，我向观众们说对不起，我确实犯了一个错误。”</p>
+				</article>
+			</section>
+		</div>
+		<nav class="flow-bottom-back">
+			<button type="button" class="mui-btn mui-action-back">
+				返回
+			</button>
+		</nav>
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+		mui('.mui-scroll-wrapper').scroll();
+		mui('body').on('shown', '.mui-popover', function(e) {
+			//console.log('shown', e.detail.id);//detail为当前popover元素
+		});
+		mui('body').on('hidden', '.mui-popover', function(e) {
+			//console.log('hidden', e.detail.id);//detail为当前popover元素
+		});
+		(function($) {
+			
+			
+			
+		})(mui);
+	</script>
+
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>流程详情页面</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+		<link rel="stylesheet" type="text/css" href="../css/flow.css" />
+		<style type="text/css">
+			p {
+				text-indent: 22px;
+			}
+			.des {
+				margin: .5em 0;
+			}
+			.des>li {
+				font-size: 14px;
+				color: #8f8f94;
+			}
+			.mui-bar {
+				display: block !important;
+			}
+			.mui-content {
+				padding-top: 44px !important;
+			}
+			.title {
+				margin: 20px 15px 10px 40px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+			/*跨webview需要手动指定位置*/
+			
+			header.mui-bar {
+				display: none!important;
+			}
+			.mui-bar-nav~.mui-content {
+				padding: 0!important;
+			}
+			#topPopover {
+				position: fixed;
+				top: 16px;
+				right: 6px;
+			}
+			.mui-popover-arrow {
+				display: none !important;
+			}
+			p {
+				text-indent: 22px;
+			}
+			span.mui-icon {
+				font-size: 14px;
+				color: #007aff;
+				margin-left: -15px;
+				padding-right: 10px;
+			}
+			.mui-popover {
+				height: 200px;
+			}
+			.mui-content {
+				padding: 10px;
+			}
+			#middlePopover {
+				width: 100% !important;
+				position: fixed !important;
+				bottom: 0px !important;
+				top: auto !important;
+				left: 0px !important;
+			}
+			
+			.flow-radio{
+				margin-top: 10px;
+				margin-left: 20px;
+			}
+			
+			.flow-datail-button{
+				width: 44%;
+			} 
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">流程信息</h1>
+		</header>
+		<div class="mui-content flow-content">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<div class="mui-pull-left fs13">
+						项目名称：九江国际皮革商贸城
+					</div>
+					<div class="mui-pull-right fs13">
+						项目状态：招标中
+					</div>
+				</li>
+			</ul>
+			<div class="line95"></div>
+			<div class="title">
+				流程记录
+			</div>
+			<section class="flow-step-view">
+				<div class="flow-step-view-cell">
+					<a href="#middlePopover">
+						<div class="step">
+						</div>
+						<div>
+							2015-12-12 财务经理
+						</div>
+						<div>
+							同意
+						</div>
+						<div class="line"></div>
+					</a>
+				</div>
+				<div class="flow-step-view-cell selected">
+					<div class="step selected">
+					</div>
+					<div>
+						2015-12-12 负责人
+					</div>
+					<div>
+						同意
+					</div>
+					<div class="line"></div>
+				</div>
+				<div class="flow-step-view-cell">
+					<div class="step">
+					</div>
+					<div>
+						2015-12-12 财务出纳
+					</div>
+					<div>
+						同意
+					</div>
+					<div class="line"></div>
+				</div>
+			</section>
+		</div>
+
+		<!--右下角弹出菜单-->
+		<div id="middlePopover" class="mui-popover" style="height: 250px;">
+			<form class="mui-input-group" style="height: 100%;margin: 0 auto; width: 90%;">
+				<div class="mui-input-row">
+					<label>审批操作：</label>
+					<div>
+						<input name="radio1" class="flow-radio" type="radio">
+						<input name="radio1" class="flow-radio" type="radio" checked>
+					</div>
+				</div>
+				<div style="padding-left: 15;padding-right: 15px;">
+					<textarea id="textarea" rows="6" cols="6" style="border: 1px solid #C0C0C0;"  placeholder="驳回意见"></textarea>
+				</div>
+			</form>
+			<div class="mui-button-row" style="position: absolute;bottom: 10px;width: 100%;">
+					<button type="button" class="mui-btn mui-btn-danger flow-datail-button"  onclick="return false;">取消</button>
+					<button type="button" class="mui-btn mui-btn-primary flow-datail-button" onclick="return false;">确认</button>&nbsp;&nbsp;
+			</div>
+		</div>
+		<nav class="flow-bottom-back">
+			<button type="button" class="mui-btn mui-action-back">
+				返回
+			</button>
+		</nav>
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+		mui('.mui-scroll-wrapper').scroll();
+		mui('body').on('shown', '.mui-popover', function(e) {
+			//console.log('shown', e.detail.id);//detail为当前popover元素
+		});
+		mui('body').on('hidden', '.mui-popover', function(e) {
+			//console.log('hidden', e.detail.id);//detail为当前popover元素
+		});
+		(function($) {
+			var aniShow = "pop-in";
+			mui('#main_ul').on('tap', 'li', function() {
+				//var id = this.getAttribute('href');
+				//var href = this.href;
+				var webview_style = {
+					popGesture: "close"
+				};
+				//侧滑菜单需动态控制一下zindex值；
+				mui.openWindow({
+					id: "flow_detail",
+					url: "flow_detail.html",
+					styles: webview_style,
+					show: {
+						aniShow: aniShow
+					},
+					waiting: {
+						autoShow: false
+					}
+				});
+			});
+		})(mui);
+	</script>
+
+</html>
