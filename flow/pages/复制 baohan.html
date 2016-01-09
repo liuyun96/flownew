@@ -44,35 +44,21 @@
 		     */
 			
 			.flow-search {
-				height: 45px;
-				line-height: 45px;
+				height: 50px;
+				line-height: 50px;
 				padding-left: 15px;
 				padding-right: 15px;
-			}
-			
-			.mui-scroll-wrapper {
-				top: 50px;
-				z-index: 10;
-			}
-			
-			.mui-bar-nav~.mui-content {
-				margin-top: 45px;
-				padding-top: 0px;
-			}
-			
-			#pullrefresh {
-				margin-top: 84px;
 			}
 		</style>
 	</head>
 
 	<body>
 		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<a class="mui-icon mui-icon-bars mui-pull-left"></a>
 			<a id="info" class="mui-icon mui-icon-search mui-pull-right" style="color: #999;"></a>
 			<h1 id="title" class="mui-title">保函清单</h1>
 		</header>
-		<div class="mui-content">
+		<div class="mui-content flow-content">
 			<section class="flow-search mui-table">
 				<div class="mui-table-cell mui-col-xs-9">检索结果</div>
 				<div id="shai_xuan" class="mui-table-cell mui-col-xs-3 mui-text-right">筛选</div>
@@ -97,16 +83,10 @@
 					</div>
 				</li>
 			</ul>
+			<ul id="flow-body" class="mui-table-view mui-table-view-striped mui-table-view-condensed flow-ul">
+				
+			</ul>
 		</div>
-		<div id="pullrefresh" class="mui-content  mui-scroll-wrapper">
-			<div class="mui-scroll">
-				<!--数据列表-->
-				<ul id="flow-body" class="mui-table-view mui-table-view-striped mui-table-view-condensed flow-ul">
-
-				</ul>
-			</div>
-		</div>
-
 		<!--右下角弹出菜单-->
 		<section id="bottomPopover" class="mui-popover mui-popover-bottom flow-popover">
 			<div class="flow-popover-body">
@@ -190,6 +170,31 @@
 	<script type="text/javascript">
 		window.onload = function() {
 			//使用
+			var bat = baidu.template;
+			var data = {
+				title: '前端攻城师',
+				list: [{
+					id: 1,
+					city: '南昌',
+					project_name: '绿地玫瑰城项目',
+					total_money: '30000.10',
+					date: '2015-12-12'
+				}, {
+					id: 2,
+					city: '南昌',
+					project_name: '绿地玫瑰城项目',
+					total_money: '30000.10',
+					date: '2015-12-12'
+				}, {
+					id: 3,
+					city: '南昌',
+					project_name: '绿地玫瑰城项目',
+					total_money: '30000.10',
+					date: '2015-12-12'
+				}]
+			};
+			var html = bat('tpl_list', data);
+			document.getElementById('flow-body').innerHTML = html;
 		}
 	</script>
 	<script>
@@ -198,23 +203,13 @@
 		//整体滑动暂不支持android手机，因为两个页面的移动动画，无法保证同步性；
 		if (!mui.os.android) {
 			//整体滑动暂不支持android手机，因为两个页面的移动动画，无法保证同步性；
-			//document.getElementById("move-togger").classList.remove('mui-hidden');
+			document.getElementById("move-togger").classList.remove('mui-hidden');
 			var spans = document.querySelectorAll('.android-only');
 			for (var i = 0, len = spans.length; i < len; i++) {
 				spans[i].style.display = "none";
 			}
 		}
 		mui.init({
-			pullRefresh: {
-				container: '#pullrefresh',
-				down: {
-					callback: pulldownRefresh
-				},
-				up: {
-					contentrefresh: '正在加载...',
-					callback: pullupRefresh
-				}
-			},
 			swipeBack: false,
 			beforeback: back //重写back
 		});
@@ -336,66 +331,9 @@
 			mui("#bottomPopover").popover('toggle');
 			//$("#modal").toggle('mui-active');
 		});
-
-		function initData(flag) {
-			var bat = baidu.template;
-			var data = {
-				title: '前端攻城师',
-				list: [{
-					id: 1,
-					city: '南昌',
-					project_name: '绿地玫瑰城项目',
-					total_money: '30000.10',
-					date: '2015-12-12'
-				}, {
-					id: 2,
-					city: '南昌',
-					project_name: '绿地玫瑰城项目',
-					total_money: '30000.10',
-					date: '2015-12-12'
-				}, {
-					id: 3,
-					city: '南昌',
-					project_name: '绿地玫瑰城项目',
-					total_money: '30000.10',
-					date: '2015-12-12'
-				}]
-			};
-			var html = bat('tpl_list', data);
-			var oldhtml = document.getElementById('flow-body').innerHTML;
-			document.getElementById('flow-body').innerHTML = oldhtml + html;
-		}
-		/**
-		 * 下拉刷新具体业务实现
-		 */
-		function pulldownRefresh() {
-			setTimeout(function() {
-				//table.insertBefore(li, table.firstChild);
-				initData("before");
-				mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
-			}, 1500);
-		}
-		var count = 0;
-		/**
-		 * 上拉加载具体业务实现
-		 */
-		function pullupRefresh() {
-			setTimeout(function() {
-				mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
-				initData("after");
-			}, 1500);
-		}
-		if (mui.os.plus) {
-			mui.plusReady(function() {
-				setTimeout(function() {
-					mui('#pullrefresh').pullRefresh().pullupLoading();
-				}, 1000);
-			});
-		} else {
-			mui.ready(function() {
-				mui('#pullrefresh').pullRefresh().pullupLoading();
-			});
-		}
+		(function($) {
+		
+		})(mui);
 	</script>
 
 </html>

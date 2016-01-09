@@ -8,3 +8,29 @@
 .mui-bar-nav a{
 	color: white;
 }
+
+
+.mui-table-view.mui-grid-view .mui-table-view-cell{
+	background-color: white;
+}
+
+.mui-table-view:after
+{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 0px;
+    content: '';
+    -webkit-transform: scaleY(.5);
+            transform: scaleY(.5);
+    background-color: #c8c7cc;
+}
+
+.mui-pull{
+	z-index: 99999;
+}
+
+.mui-pull-caption{
+	
+}
